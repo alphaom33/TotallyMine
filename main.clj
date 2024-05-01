@@ -1,12 +1,17 @@
-(ns main (:import [java.io File] [java.io FileReader]))
+(ns main
+  (:import 
+   [java.io File]
+   [java.io FileReader]))
 
-(def file (File. "code/main.dym"))
-(def reader (FileReader. file))
+(defn readFile [path] (let [
+file (File. path)
+reader (FileReader. file)
+yes (char-array 10)]
 
-(println (.getEncoding reader))
+  (.read reader yes 0 10)
+  (.close reader)
 
-(def yes (char-array 10))
-(println (.read reader yes 0 10))
-(println (seq yes)) ; file reading successful
+  (String. yes)
+))
 
-(.close reader)
+(println (readFile "code/main.dym"))
