@@ -1,8 +1,10 @@
-entrypoint = "main.clj"
+entrypoint = "dynamite/src/dynamite/core.clj"
 
 hidden = [".clj-kondo", ".lsp", ".config"]
 
 modules = ["clojure-1.11:v2-20230623-0b7a606"]
+
+run = "lein run dynamite"
 
 [nix]
 channel = "stable-23_11"

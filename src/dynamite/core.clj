@@ -9,4 +9,4 @@
   "I don't do a whole lot ... yet."
   [& args]
   (println "Hello, World!")
-  (println (reader/readFile "../code/main.dym")))
+  (println (reader/readFile "code/main.dym")))

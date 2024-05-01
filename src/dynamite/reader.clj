@@ -11,6 +11,5 @@
     (.close reader)
 
     (String. yes)
+    
   ))
-
-(println (readFile "code/main.dym"))
