@@ -1,0 +1,18 @@
+For lexing the code:
+The code is split into separate tokens, and they are grouped together to form statements.
+The code is split into operators, identifiers, number literals, whitespace, and groups (quotes, parentheses, brackets/braces, etc)
+"Operators" are split further into actual operators when possible.
+Number literals can have the following syntax:
+  123
+  123_000_000
+  123.0
+  123e4
+  123.0i
+  0b1101.0
+  0o123.0
+  0x123abCD
+Any token starting with a number that does not follow this syntax throws an error.
+Whitespace segments not containing a line feed are ignored.
+Code inside groups are left untouched to be evaluated later.
+
+These are just my ideas. Feel free to make changes/suggestions.

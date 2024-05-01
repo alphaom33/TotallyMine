@@ -1,6 +1,6 @@
 (ns main (:import [java.io File] [java.io FileReader]))
 
-(def file (File. "code/main.dynam"))
+(def file (File. "code/main.dym"))
 (def reader (FileReader. file))
 
 (println (.getEncoding reader))
