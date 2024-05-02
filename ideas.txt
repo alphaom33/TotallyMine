@@ -1,7 +1,7 @@
 For lexing the code:
 The code is split into separate tokens, and they are grouped together to form statements.
-The code is split into operators, identifiers, number literals, whitespace, and groups (quotes, parentheses, brackets/braces, etc)
-"Operators" are split further into actual operators when possible.
+The code is split into symbols, identifiers, number literals, whitespace, string literals, and groups (quotes, parentheses, brackets/braces, etc)
+Symbols are split further into actual operators when possible.
 Number literals can have the following syntax:
   123
   123_000_000
@@ -12,6 +12,12 @@ Number literals can have the following syntax:
   0o123.0
   0x123abCD
 Any token starting with a number that does not follow this syntax throws an error.
+String literals can start with single or double quotes, or tick marks.
+A tick mark indicates a raw string (no escape sequences or formatting).
+Strings using single/double quotes are automcatically formatted strings.
+Adding braces in the string indicate evaluation.
+This can be escaped with a backslash before the opening/closing braces.
+
 Whitespace segments not containing a line feed are ignored.
 Code inside groups are left untouched to be evaluated later.
 

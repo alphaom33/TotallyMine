@@ -1,15 +1,15 @@
-(ns dynamite.reader  (:import 
+(ns dynamite.reader
+  (:import 
      [java.io File]
-     [java.io FileReader]))
+     [java.io FileReader]
+     [java.nio.file Files]
+     [java.nio.file Path]
+     [java.nio.file FileSystems]
+     [java.nio.file Paths]
+     [java.net URI]))
 
-(defn readFile [path] (let [
-  file (File. path)
-  reader (FileReader. file)
-  yes (char-array 10)]
+(def numRead 10000)
 
-    (.read reader yes 0 10)
-    (.close reader)
-
-    (String. yes)
-    
-  ))
+(defn readFile [path] (let
+  [pathy (Paths/get (URI/create (str "file:///" "home/runner/dynamite/" path)))]
+   (String. (Files/readAllBytes pathy))))
